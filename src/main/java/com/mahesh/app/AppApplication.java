@@ -15,6 +15,11 @@ public class AppApplication {
 		SpringApplication.run(AppApplication.class, args);
 	}
 	
+	@GetMapping("/")
+	public String sayHello() {
+		return "mahesh!!!";
+	}
+	
 	@GetMapping("/hello")
 	public String sayHello() {
 		return "Hello World!!!";
