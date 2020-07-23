@@ -41,4 +41,4 @@ jobs:
     
     - name: Dev Test
       run: |
-        curl localhost
+        curl ${{ secrets.APP_URL }}
