@@ -6,8 +6,6 @@ name: Java CI with Maven
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
@@ -30,3 +28,17 @@ jobs:
       with:
         name: build
         path: target/
+
+    - name: cf push
+      uses: citizen-of-planet-earth/cf-cli-action@master
+      with:
+        cf_api: ${{ secrets.CF_API }}
+        cf_username: ${{ secrets.CF_USER }}
+        cf_password: ${{ secrets.CF_PASSWORD }}
+        cf_org: ${{ secrets.ORG }}
+        cf_space: ${{ secrets.SPACE }}
+        command: push my-cd-app -p target/*.jar
+    
+    - name: Dev Test
+      run: |
+        curl localhost
