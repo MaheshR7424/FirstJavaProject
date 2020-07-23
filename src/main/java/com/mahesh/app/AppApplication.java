@@ -13,7 +13,7 @@ public class AppApplication {
 		System.out.println("Hello World!!!");
 		System.out.println("Welcome to GitHub");
 		SpringApplication.run(AppApplication.class, args);
-	}k
+	}
 	
 	@GetMapping("/")
 	public String hello() {
